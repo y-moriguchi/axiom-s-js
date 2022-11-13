@@ -137,10 +137,10 @@ function AxiomS(opt) {
         const arglist = toS(args);
 
         function appends(now, arglist) {
-            return !isNull(now)
-                   ? pair(head(now), appends(tail(now), arglist))
-                   : !isNull(now) && !isPair(now)
+            return !isNull(now) && !isPair(now)
                    ? error(now, "Proper list required")
+                   : !isNull(now)
+                   ? pair(head(now), appends(tail(now), arglist))
                    : isNull(arglist)
                    ? nil
                    : appends(head(arglist), tail(arglist));
@@ -304,6 +304,7 @@ function AxiomS(opt) {
         tail: tail,
         isPair: isPair,
         isNull: isNull,
+        getNil: () => nil,
         car: head,
         cdr: tail,
         isEqual: isEqual,
