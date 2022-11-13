@@ -5,11 +5,11 @@ Expression of "cons pair" is given as fundamental functions or an "axiom of S-ex
 
 ## How to use
 
-You can use Axiom-S by calling AxiomS function with fundamental functions which treats S-expression.
+You can use Axiom-S-js by calling AxiomS function with fundamental functions which treats S-expression.
 An example shown as follows is S-expression as function which dispatches by message to get head or tail.
 
 ```javascript
-const s = Axiom-S({
+const s = AxiomS({
     pair: (h, t) => msg => msg === "head" ? h : msg === "tail" ? t : s.error(msg, "Invalid message"),
     head: p => p("head"),
     tail: p => p("tail"),
